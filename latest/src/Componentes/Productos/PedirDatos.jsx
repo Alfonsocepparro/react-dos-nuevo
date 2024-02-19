@@ -1,13 +1,17 @@
-import data from "../data.json"
+import data from './data.json';
 
-export const pedirDatos = () =>{
-    return new Promise ((resolve, reject) =>{
-        setTimeout( ()=> {
-            resolve (data);
-        }, 1000)
-    }
-    )
-}
+export const pedirDatos = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (data) {
+                resolve(data);
+            } else {
+                reject(new Error("Error al cargar datos."));
+            }
+        }, 1000);
+    });
+};
+
 
 export const pedirItemPorId = (id) => {
     return new Promise ((resolve, reject) =>{

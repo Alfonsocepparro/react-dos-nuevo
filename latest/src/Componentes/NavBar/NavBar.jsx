@@ -1,17 +1,19 @@
 import { Link, NavLink } from 'react-router-dom'
+import './NavBar.css';
+import CartWidget from './CartWidget/CartWidget';
 
-const Navbar = () => {
+const NavBar=() =>{
     return (
-    <nav className="navbar">
-        <Link to="/" className="logo"><h1>Carpishop</h1></Link>
-        <ul className="menu">
-            <li><NavLink className="menu-link" to="/">Inicio</NavLink></li>
-            <li><NavLink className="menu-link" to="/productos">Productos</NavLink></li>
-            <li><NavLink className="menu-link" to="/productos/medias">Medias</NavLink></li>
-            <li><NavLink className="menu-link" to="/productos/pantalones">Pantalones</NavLink></li>
-        </ul>
-    </nav>
-    )
-}
+        <header>
+            <Link to="/" className="logo"><img src="https://pngimg.com/uploads/ferrari/ferrari_PNG10665.png" alt="" style={{ width: '100px', height: 'auto' }}/></Link>
+            <nav>
+                <NavLink className="menu-link" to="/categoria/Audi">Audi</NavLink>
+                <NavLink className="menu-link" to="/categoria/Mercedes Benz">Mercedes Benz</NavLink>
+                <NavLink className="menu-link" to="/categoria/BMW">BMW</NavLink>
+                <CartWidget />
+            </nav>
+        </header>
 
-export default Navbar
+);
+}
+export default NavBar

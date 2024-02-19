@@ -4,12 +4,12 @@ import ItemList from "./ItemList"
 
 const ItemListContainer = () => {
 
-    const [productos , setProductos] = useState
+    const [productos , setProductos] = useState([]);
 
     useEffect (() => {
         pedirDatos()
             .then((res) => {
-                setProductos;
+                setProductos(res);
             })
         }, [])
 

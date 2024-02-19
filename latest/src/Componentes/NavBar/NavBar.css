@@ -1,0 +1,9 @@
+header{
+    background-color: #D83636;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.menu-link{
+    :hover
+}

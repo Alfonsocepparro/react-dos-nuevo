@@ -9,6 +9,10 @@
     --clr-main: #c56cee;
     --clr-main-light: #efdaf9;
 }
+html{
+    height: 100%;
+    width: 100%;
+}
 
 .container {
     max-width: 1140px;
@@ -31,6 +35,8 @@
 
 .logo {
     text-decoration: none;
+    height: 100px;
+    width: 100px;
     color: black;
 }
 
