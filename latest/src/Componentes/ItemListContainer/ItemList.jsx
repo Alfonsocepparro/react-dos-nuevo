@@ -5,7 +5,7 @@ const ItemList = ({ productos }) => {
 console.log(data);
     return (
         <div className="container">
-            <h2 className="titulo-principal">Productos</h2>
+            <h2 className="titulo-principal">Catalogo</h2>
 
             <div className="productos">
                 {productos.map((prod) => 

@@ -16,7 +16,7 @@ export const pedirDatos = () => {
 export const pedirItemPorId = (id) => {
     return new Promise ((resolve, reject) =>{
 
-        const item = data.find((el) => el.id === id);
+        const item = data.find((el) => el.id.toString() === id);
         if (item) {
             resolve (item)
         } else {
