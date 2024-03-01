@@ -1,28 +1,26 @@
 import data from './data.json';
 
-export const pedirDatos = () => {
-    return new Promise((resolve, reject) => {
+export const getProductos = () => {
+    return new Promise((resolve) => {
         setTimeout(() => {
-            if (data) {
-                resolve(data);
-            } else {
-                reject(new Error("Error al cargar datos."));
-            }
-        }, 1000);
-    });
-};
-
-
-export const pedirItemPorId = (id) => {
-    return new Promise ((resolve, reject) =>{
-
-        const item = data.find((el) => el.id.toString() === id);
-        if (item) {
-            resolve (item)
-        } else {
-            reject ({
-                error: "Producto no encontrado"
-            })
-        }
+            resolve(data);
+        }, 150)
     })
 }
+
+export const getProductoId = (id) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const producto = data.find(item => item.id === id);
+            resolve(producto);
+        }, 500)
+    })
+}
+
+export const getProductosPorCategoria = (idCategory) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const productosCategoria =data.filter(item => item.category === idCategory);
+            resolve(productosCategoria);
+    })}
+    )}

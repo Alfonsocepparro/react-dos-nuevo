@@ -1,5 +1,6 @@
 import Item from "./Item";
 import data from "../Productos/data.json"
+import './Item.css';
 
 const ItemList = ({ productos }) => {
 console.log(data);

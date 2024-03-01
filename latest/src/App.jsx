@@ -11,10 +11,10 @@ const App = () => {
       <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path='/' element={ <ItemListContainer greeting="Bienvenido a la tienda de automoviles de alta gama" />} />
-        <Route path='/categoria/:categoryId' element={ <ItemListContainer />} />
+        <Route path='/' element={ <ItemListContainer />} />
+        <Route path='/categoria/:categoriaId' element={ <ItemListContainer />} />
         <Route path='/item/:id' element={ <ItemDetailContainer />} /> 
-        <Route path='/categoria/:categoryId/Item/:id' element={ <ItemDetailContainer />} />
+        <Route path='*' element={<h1> 404 NOT FOUND</h1>} />
       </Routes>
       </BrowserRouter>
   )
