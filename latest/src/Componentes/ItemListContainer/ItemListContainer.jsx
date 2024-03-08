@@ -1,23 +1,48 @@
 import { useEffect, useState } from "react"
-import { pedirDatos } from "../Productos/PedirDatos"
-import ItemList from "./ItemList"
-import './Item.css';
+import ItemList from "../ItemList/ItemList"
+import './ItemListContainer.css';
+import { useParams } from "react-router-dom";
+import data from '../Productos/data.json'
 
-const ItemListContainer = () => {
+
+function asyncMock(categoryId) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (categoryId === undefined) {
+                resolve(data);
+            } else {
+                const productosFiltro = data.filter((item) => {
+                    return item.categoria === categoryId;
+                });
+
+                if (productosFiltro.length === 0) {
+                    reject("Producto no encontrado");
+                }
+
+                resolve(productosFiltro);
+            }
+        }, 1000);
+    });
+}
+
+
+
+const ItemListContainer = ({greeting}) => {
 
     const [productos , setProductos] = useState([]);
+    const {categoryId} = useParams();
 
-    useEffect (() => {
-        pedirDatos()
-            .then((res) => {
-                setProductos(res);
-            })
-        }, [])
+    useEffect(() => {
+        asyncMock(categoryId)
+        .then((response) => setProductos(response))
+        .catch ((rej) => console.log (rej)); 
+    },[categoryId]);
 
     return (
-        <div>
+        <main>
+            <h1 className="greeting">{greeting}</h1>
             <ItemList productos= {productos} />
-    </div>
+        </main>
     )
 }
 

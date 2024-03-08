@@ -1,6 +1,6 @@
 import data from './data.json';
 
-export const getProductos = () => {
+export const pedirDatos = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(data);
@@ -8,19 +8,29 @@ export const getProductos = () => {
     })
 }
 
+
 export const getProductoId = (id) => {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const producto = data.find(item => item.id === id);
-            resolve(producto);
+            const product = data.find(product => product.id === id)
+
+            if (product) {
+                resolve(product);
+            } else {
+                reject({
+                    error: "Producto no encontrado",
+                })
+            }
         }, 500)
-    })
+    });
 }
 
-export const getProductosPorCategoria = (idCategory) => {
+
+
+export const getProductosPorCategoria = (categoryId) => {
     return new Promise(resolve => {
         setTimeout(() => {
-            const productosCategoria =data.filter(item => item.category === idCategory);
+            const productosCategoria =data.filter(item => item.category === categoryId);
             resolve(productosCategoria);
     })}
     )}

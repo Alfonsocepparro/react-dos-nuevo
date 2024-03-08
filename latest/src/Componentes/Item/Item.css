@@ -1,0 +1,27 @@
+.itemConteiner {
+    width: 15.625rem;
+    height: auto;
+    border: .125rem solid #ffffff;
+    padding: .5rem;
+    margin: .5rem;
+}
+
+.itemConteiner img {
+    width: 12.5rem;
+    height: 12.5rem;
+}
+
+h2 {
+    padding: .5rem;
+    font-size: 1rem;
+    color: #ffffff;
+}
+.imagenProd{
+    width: 300px;
+    height: 300px;
+}
+
+p{
+    font-size: 1rem;
+    color: #ffffff;
+}

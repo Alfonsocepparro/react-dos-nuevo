@@ -3,38 +3,24 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-
-header{
+header { 
+    max-width: 100%;
+    display : flex;
+    justify-content: space-between;
     background-color: #D83636;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 150px;
-    padding-left: 20px;
+    margin: 0;
+    height: 160px;
+
 }
-.logo {
-    margin-bottom: 27px;
-    width: 20%;
-}
-nav{ 
+nav {
     display: flex;
-    justify-content: space-between;
-    font-size: 2rem;
-    height: 100px;
-    align-items: center;
-    width: 80%;
+    justify-content: center;
+    gap: 3rem; 
 }
 
-.menu-link {
-    margin: 0 10px;
-    text-decoration: underline;
+nav a {
+    display: flex;
+    font-size: 2.5rem;
     text-decoration: none;
-    color: wheat;
-}
-.menu-link:hover {
-    color: white
-}
-.menu-link img{
-    background-color: #D83636;
+    color: #000000;
 }
