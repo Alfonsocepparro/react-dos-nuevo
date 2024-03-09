@@ -1,48 +1,42 @@
-import { useEffect, useState } from "react"
-import ItemList from "../ItemList/ItemList"
-import './ItemListContainer.css';
+import { useEffect, useState } from "react";
+import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
-import data from '../Productos/data.json'
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../Configuracion/Configuracion";
+import './ItemListContainer.css';
+
+const ItemListContainer = () => {
+
+    const [productos, setProductos] = useState([]);
 
 
-function asyncMock(categoryId) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (categoryId === undefined) {
-                resolve(data);
-            } else {
-                const productosFiltro = data.filter((item) => {
-                    return item.categoria === categoryId;
-                });
-
-                if (productosFiltro.length === 0) {
-                    reject("Producto no encontrado");
-                }
-
-                resolve(productosFiltro);
-            }
-        }, 1000);
-    });
-}
-
-
-
-const ItemListContainer = ({greeting}) => {
-
-    const [productos , setProductos] = useState([]);
-    const {categoryId} = useParams();
+    const categoria = useParams().categoria;
 
     useEffect(() => {
-        asyncMock(categoryId)
-        .then((response) => setProductos(response))
-        .catch ((rej) => console.log (rej)); 
-    },[categoryId]);
 
+        const productosRef = collection(db, "productos");
+        const q = categoria ? query(productosRef, where("categoria", "==", categoria)) : productosRef;
+
+        getDocs(q)
+        .then((resp) => {
+            console.log(resp);
+            setProductos(
+                console.log(resp.docs[0].id),
+                console.log(resp.docs[0].data()),
+                
+            resp.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id }
+            })
+        )
+    })
+        
+    }, [categoria])
+    
+    
     return (
-        <main>
-            <h1 className="greeting">{greeting}</h1>
-            <ItemList productos= {productos} />
-        </main>
+    <div>
+        <ItemList productos={productos} />
+    </div>
     )
 }
 

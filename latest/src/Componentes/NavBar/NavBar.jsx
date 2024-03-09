@@ -2,26 +2,22 @@ import { Link, NavLink } from 'react-router-dom';
 import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
 
-const NavBar = () => {
+
+const Navbar = () => {
     return (
-        <header>
-            <Link to="/" className="logo">
-                <img src="https://pngimg.com/uploads/ferrari/ferrari_PNG10665.png" alt="" style={{ width: '100px', height: 'auto' }} />
-            </Link>
-            <nav className='navBar'>
-                <NavLink to="/categoria/Audi" className={isActive => isActive ? 'ActiveOption' : 'Option'}>
-                    Audi
-                </NavLink>
-                <NavLink to="/categoria/Mercedes%20Benz" className={isActive => isActive ? 'ActiveOption' : 'Option'}>
-                    Mercedes Benz
-                </NavLink>
-                <NavLink to="/categoria/BMW" className={isActive => isActive ? 'ActiveOption' : 'Option'}>
-                    BMW
-                </NavLink>
-                <CartWidget />
-            </nav>
-        </header>
-    );
+    <nav className="navbar">
+        <Link to="/" className="logo">
+            <img src="https://pngimg.com/uploads/ferrari/ferrari_PNG10665.png" alt="" style={{ width: '100px', height: 'auto' }} />
+        </Link>
+        <ul className="menu">
+            <li><NavLink  className={isActive => isActive ? 'ActiveOption' : 'Option'} to="/productos">Autos</NavLink></li>
+            <li><NavLink  className={isActive => isActive ? 'ActiveOption' : 'Option'} to="/productos/Audi">Audi</NavLink></li>
+            <li><NavLink  className={isActive => isActive ? 'ActiveOption' : 'Option'} to="/productos/Mercedes Benz">Mercedes Benz</NavLink></li>
+            <li><NavLink className={isActive => isActive ? 'ActiveOption' : 'Option'} to="/productos/BMW">BMW</NavLink></li>
+            <li><CartWidget /></li>
+        </ul>
+    </nav>
+    )
 }
 
-export default NavBar;
+export default Navbar

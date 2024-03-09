@@ -3,24 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 }
-header { 
-    max-width: 100%;
-    display : flex;
+
+.navbar {
+    padding: 2rem;
+    display: flex;
     justify-content: space-between;
-    background-color: #D83636;
-    margin: 0;
-    height: 160px;
-
-}
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 3rem; 
+    align-items: center;
+    background-color: var(--clr-main);
+    border-bottom: 3px solid black;
 }
 
-nav a {
-    display: flex;
-    font-size: 2.5rem;
+.logo {
     text-decoration: none;
-    color: #000000;
+    color: black;
+}
+.menu {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.NavLink{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
 }
