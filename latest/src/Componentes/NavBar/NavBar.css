@@ -23,8 +23,10 @@
     align-items: center;
     gap: 1rem;
 }
-.NavLink{
+a{
     text-decoration: none;
-    color: black;
-    font-size: 1.2rem;
+    color: white;
+    gap: 40px;
+    background-color: black;
+    font-size: 3rem;
 }

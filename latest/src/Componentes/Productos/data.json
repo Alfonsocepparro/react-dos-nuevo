@@ -2,7 +2,7 @@
     {
         "id": 1,
         "titulo": "Mercedes Benz clase S",
-        "descripcion": "Mercedes benz clase S año 2023",
+        "descripcion": "    ",
         "categoria": "Mercedes Benz",
         "imagen": "https://i0.wp.com/www.mrpinglife.com/wp-content/uploads/2017/09/Exterior.jpg?resize=6000%2C4000&ssl=1",
         "precio": 15000,
@@ -78,6 +78,6 @@
         "categoria": "Audi",
         "imagen": "https://www.audi.co.nz/content/dam/nemo/models/a5/s5-sportback/my-2020/1920x1080-mtc-x-l-16-9/1920x1080-AS5_SB_191003.jpg",
         "precio": 290500,
-        "stock": 1
+        "stock": 3
     }
 ]

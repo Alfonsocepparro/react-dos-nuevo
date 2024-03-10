@@ -7,15 +7,17 @@ const Navbar = () => {
     return (
     <nav className="navbar">
         <Link to="/" className="logo">
-            <img src="https://pngimg.com/uploads/ferrari/ferrari_PNG10665.png" alt="" style={{ width: '100px', height: 'auto' }} />
+            <img src="https://pngimg.com/uploads/ferrari/ferrari_PNG10665.png" alt="" />
         </Link>
         <ul className="menu">
-            <li><NavLink  className={isActive => isActive ? 'ActiveOption' : 'Option'} to="/productos">Autos</NavLink></li>
-            <li><NavLink  className={isActive => isActive ? 'ActiveOption' : 'Option'} to="/productos/Audi">Audi</NavLink></li>
-            <li><NavLink  className={isActive => isActive ? 'ActiveOption' : 'Option'} to="/productos/Mercedes Benz">Mercedes Benz</NavLink></li>
-            <li><NavLink className={isActive => isActive ? 'ActiveOption' : 'Option'} to="/productos/BMW">BMW</NavLink></li>
+            <li><NavLink className="Option" to="/productos">Autos</NavLink></li>
+            <li><NavLink className="Option" to="/productos/Audi">Audi</NavLink></li>
+            <li><NavLink className="Option" to="/productos/Mercedes%20Benz">Mercedes Benz</NavLink></li>
+            <li><NavLink className="Option" to="/productos/BMW">BMW</NavLink></li>
             <li><CartWidget /></li>
         </ul>
+
+
     </nav>
     )
 }

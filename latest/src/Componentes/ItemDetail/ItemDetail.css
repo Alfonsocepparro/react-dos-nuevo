@@ -7,11 +7,13 @@
 .producto-detalle {
     padding-block: 2rem;
     display: grid;
+    background-color: lightslategrey;
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
 }
 .producto-detalle img {
     width: 100%;
+    padding-left: 1rem;
 }
 .producto-detalle-info h3 {
     font-size: 2rem;

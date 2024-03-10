@@ -12,14 +12,15 @@ const App = () => {
   <CartProvider>
   <BrowserRouter>
     <NavBar />
-      <Routes>
-        <Route path='/' element={ <ItemListContainer greeting="Bienvenido a tu tienda de autos de lujo" />} />
-        <Route path='/categoria/:categoryId' element={ <ItemListContainer />} />
-        <Route path='/item/:id' element={ <ItemDetailContainer />} /> 
-        <Route path='/categoria/:categoryId/Item/:id' element={ <ItemDetailContainer />} />
-        <Route path='/cart/' element={ <Carrito />} />
-        <Route path='/cart/checkout/' element={ <Checkout />} />
-      </Routes>
+    <Routes>
+      <Route path='/' element={<ItemListContainer greeting="Bienvenido a tu tienda de autos de lujo" />} />
+      <Route path='/productos/:categoriaId' element={<ItemListContainer />} />
+      <Route path='/item/:id' element={<ItemDetailContainer />} /> 
+      <Route path='/cart/' element={<Carrito />} />
+      <Route path='/cart/checkout/' element={<Checkout />} />
+    </Routes>
+
+
     </BrowserRouter>
   </CartProvider>
   )

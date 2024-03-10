@@ -6,38 +6,33 @@ import { db } from "../../Configuracion/Configuracion";
 import './ItemListContainer.css';
 
 const ItemListContainer = () => {
-
     const [productos, setProductos] = useState([]);
-
-
-    const categoria = useParams().categoria;
-
-    useEffect(() => {
-
-        const productosRef = collection(db, "productos");
-        const q = categoria ? query(productosRef, where("categoria", "==", categoria)) : productosRef;
-
-        getDocs(q)
-        .then((resp) => {
-            console.log(resp);
-            setProductos(
-                console.log(resp.docs[0].id),
-                console.log(resp.docs[0].data()),
-                
-            resp.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id }
-            })
-        )
-    })
-        
-    }, [categoria])
+        const { categoria } = useParams();
     
+        useEffect(() => {
+        const obtenerProductos = async () => {
+            const productosRef = collection(db, "productos");
+            const q = categoria ? query(productosRef, where("categoria", "==", categoria)) : productosRef;
     
-    return (
-    <div>
-        <ItemList productos={productos} />
-    </div>
-    )
-}
-
-export default ItemListContainer
+            try {
+            const querySnapshot = await getDocs(q);
+            const productosData = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+            setProductos(productosData);
+            console.log("Productos:", productosData);
+            } catch (error) {
+            console.error("Error al obtener datos de Firestore:", error);
+            }
+        };
+    
+        obtenerProductos();
+        }, [categoria]);
+    
+        return (
+        <div>
+            <ItemList productos={productos} />
+        </div>
+        );
+    };
+    
+    export default ItemListContainer;
+  
